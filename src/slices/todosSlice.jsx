@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  allTodos: [],
+  allTodos: JSON.parse(localStorage.getItem('todos')),
   currentTodos: [],
 }
 
@@ -10,6 +10,7 @@ const todosSlice = createSlice({
   initialState,
   reducers: {
     setAllTodos: (state, action) => {
+      localStorage.setItem('todos', JSON.stringify(action.payload))
       state.allTodos = action.payload
     },
     setCurrentTodos: (state, action) => {
