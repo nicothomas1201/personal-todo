@@ -46,7 +46,7 @@ function TodosMain() {
       {currentTodos.length !== 0 ? currentTodos.map( (todo, index ) => {
         return <Todo key={index} todo={todo} />
       }) : <span className='none'>No tines nada por hacer</span> }
-      {view === 'completed' && allTodos.length !== 0 ? <Button
+      {view === 'completed' && currentTodos.length !== 0 ? <Button
         onClick={handleDeleteAllComplete}
         type="delete"
         text="delete all"
